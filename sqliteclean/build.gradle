@@ -16,10 +16,11 @@ android {
     }
 }
 
+apply from: 'https://raw.github.com/chrisbanes/gradle-mvn-push/master/gradle-mvn-push.gradle'
 uploadArchives {
     repositories {
         mavenDeployer {
-            repository(url: "file://E:/Projetos")
+            repository(url: "https://oss.sonatype.org/content/repositories/snapshots")
 
             pom.groupId = GROUP
             pom.artifactId = POM_ARTIFACT_ID
@@ -31,5 +32,4 @@ task install(dependsOn: uploadArchives)
 
 dependencies {
     compile 'com.android.support:appcompat-v7:25.1.0'
-    testCompile 'junit:junit:4.12'
 }
